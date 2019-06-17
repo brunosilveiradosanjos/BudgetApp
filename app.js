@@ -1,42 +1,37 @@
-// var budgetController = (function () {
-//     var x = 23;
-//     var add = function (a) {
-//         return x + a;
-//     }
 
-//     return {
-//         publicTest: function (b) {
-//             console.log(add(b));
-//         }
-//     }
-// })();
-
+// BUDGET CONTROLLER
 var budgetController = (() => {
-    var x = 23;
-
-    var add = ((a) => {
-        return x + a;
-    });
-
-    return {
-        publicTest: (b) => {
-            return add(b);
-        }
-    }
+    //  Some code
     // this function is declared and immediately called ()
 })();
 
+// UI CONTROLLER
 var UIController = (() => {
     // Some code
 });
 
+// GLOBAL APP CONTROLLER
 var controller = ((budgetCtrl, UICtrl) => {
 
-    var z = budgetCtrl.publicTest(5);
+    var crtlAddItem = () => {
+        // 1. Get the field input data
+        // 2. Add the item to the budget controller
+        // 3. Add the item to the IU
+        // 4. Calculate the budget
+        // 5. Display the budget on the UI
+        console.log('inside');
 
-    return {
-        anotherPublic: () => {
-            console.log(z);
-        }
     };
+
+    // Add event to button press
+    document.querySelector('.add__btn').addEventListener('click', crtlAddItem);
+
+    // Event for enter keypress
+    document.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            console.log('Entar was pressed');
+            crtlAddItem();
+        }
+    });
+
 })(budgetController, UIController);
